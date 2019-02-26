@@ -1,9 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Body from './components/Body';
+import Header from './components/Header';
 
 
-const App = () => <Body />;
 
+
+class App extends React.Component {
+
+    render() {
+        return (
+            <div>
+                <Header />
+                <Body />
+            </div>
+        );
+    }
+}
 
 export default App;

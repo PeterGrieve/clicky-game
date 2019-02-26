@@ -1,42 +1,34 @@
 
 import React from "react";
 import "./Body.css";
-import { Navbar, Container, Row, Col, Button } from 'react-materialize'
+import Clicky from '../Clicky';
+import { Container, Row, Col } from 'react-materialize'
 
-function Clicky(props) {
-  return (
-    <Col s={2}>
-      <Button className="clicky white" onClick={props.onClick}>
-        {props.value}
-      </Button>
-    </Col>
-  );
-}
 
-class Board extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
 
-      score: 0,
+class Body extends React.Component {
 
-      clickyValues: [
-        { value: <img src={require('./images/aquarius.png')} width="125" height="125"/>, clicked: false },
-        { value: <img src={require('./images/aries.png')} width="125" height="125"/>, clicked: false },
-        { value: <img src={require('./images/cancer.png')} width="125" height="125"/>, clicked: false },
-        { value: <img src={require('./images/capricorn.png')} width="125" height="125"/>, clicked: false },
-        { value: <img src={require('./images/gemini.png')} width="125" height="125"/>, clicked: false },
-        { value: <img src={require('./images/leo.png')} width="125" height="125"/>, clicked: false },
-        { value: <img src={require('./images/libra.png')} width="125" height="125"/>, clicked: false },
-        { value: <img src={require('./images/pisces.png')} width="125" height="125"/>, clicked: false },
-        { value: <img src={require('./images/sagittarius.png')} width="125" height="125"/>, clicked: false },
-        { value: <img src={require('./images/scorpio.png')} width="125" height="125"/>, clicked: false },
-        { value: <img src={require('./images/taurus.png')} width="125" height="125"/>, clicked: false },
-        { value: <img src={require('./images/virgo.png')} width="125" height="125"/>, clicked: false },
-      ]
+  state = {
 
-    };
-  }
+    score: 0,
+
+    clickyValues: [
+      { value: <img src={require('./images/aquarius.png')} width="125" height="125" />, clicked: false },
+      { value: <img src={require('./images/aries.png')} width="125" height="125" />, clicked: false },
+      { value: <img src={require('./images/cancer.png')} width="125" height="125" />, clicked: false },
+      { value: <img src={require('./images/capricorn.png')} width="125" height="125" />, clicked: false },
+      { value: <img src={require('./images/gemini.png')} width="125" height="125" />, clicked: false },
+      { value: <img src={require('./images/leo.png')} width="125" height="125" />, clicked: false },
+      { value: <img src={require('./images/libra.png')} width="125" height="125" />, clicked: false },
+      { value: <img src={require('./images/pisces.png')} width="125" height="125" />, clicked: false },
+      { value: <img src={require('./images/sagittarius.png')} width="125" height="125" />, clicked: false },
+      { value: <img src={require('./images/scorpio.png')} width="125" height="125" />, clicked: false },
+      { value: <img src={require('./images/taurus.png')} width="125" height="125" />, clicked: false },
+      { value: <img src={require('./images/virgo.png')} width="125" height="125" />, clicked: false },
+    ]
+
+  };
+
 
   handleClick(i) {
 
@@ -45,18 +37,17 @@ class Board extends React.Component {
 
     if (values[i].clicked === true) {
 
-      alert("You Lose!"); 
+      alert("You Lose!");
       score = 0;
-    
-     for(var i=0; i<values.length;i++)
-     {
-        values[i].clicked = false;
-     }
 
-     this.setState({
-      values: values,
-      score: score
-    });
+      for (var j = 0; j < values.length; j++) {
+        values[j].clicked = false;
+      }
+
+      this.setState({
+        values: values,
+        score: score
+      });
 
       return;
 
@@ -66,22 +57,21 @@ class Board extends React.Component {
 
     score++;
 
-    if(score >= 12){
+    if (score >= 12) {
 
-      alert("You Win!"); 
+      alert("You Win!");
       score = 0;
-    
-     for(var i=0; i<values.length;i++)
-     {
-        values[i].clicked = false;
-     }
 
-     this.setState({
-      values: values,
-      score: score
-    });
+      for (var j = 0; j < values.length; j++) {
+        values[j].clicked = false;
+      }
 
-     return;
+      this.setState({
+        values: values,
+        score: score
+      });
+
+      return;
 
     }
 
@@ -110,6 +100,7 @@ class Board extends React.Component {
   }
 
   renderClicky(i) {
+
     return (
       <Clicky
         value={this.state.clickyValues[i].value}
@@ -121,25 +112,20 @@ class Board extends React.Component {
   render() {
     return (
       <div>
-        <Navbar className="grey darken-4">
-        <Row>
-          <Col s={4}></Col>
-          <Col s={4}>
-            <h1 className="title">Clicky Game</h1>
-          </Col>
-          <Col s={4}>
-            <h1 className="scoreLabel">Score: {this.state.score}</h1>
-          </Col>
-          </Row>
-        </Navbar>
         <Container>
           <Row>
-            <div className="directions">
-              <p>
-                Click Every Image once to win.
-                If you click the same Image twice you lose.
+            <Col s={8}>
+
+              <div className="directions">
+                <p>
+                  Click Every Image once to win.
+                  If you click the same Image twice you lose.
               </p>
-            </div>
+              </div>
+            </Col>
+            <Col s={4}>
+              <h1 className="scoreLabel">Score: {this.state.score}</h1>
+            </Col>
           </Row>
           <Row>
             <Col s={2}></Col>
@@ -172,15 +158,6 @@ class Board extends React.Component {
   };
 }
 
-const Body = props => {
-
-  return (
-    <div className="game-board">
-      <Board />
-    </div>
-  );
-
-}
 
 export default Body;
 

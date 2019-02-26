@@ -1,37 +1,16 @@
-.clicky{
-
-margin: 15px;
-border-style: solid;
-border-width: 3px;
-border-color: black;
-text-align: center;
-height: 150px;
-width: 150px;
-background-color: blue;
-color: black;
-padding: 0px;
-
-}
-
-.title{
-
-  text-align: center;
-  font-size: 35px;
-
-}
-
-.scoreLabel{
-
-  padding-top: 15px;
-  text-align: center;
-  font-size: 25px;
-  color: white;
-
-}
 
 .directions{
 
-    margin-top: 50px;
+    padding-top: 15px;
     text-align: center;
     font-size: 25px;
 }
+
+.scoreLabel{
+  
+    padding-top: 15px;
+    text-align: center;
+    font-size: 25px;
+    color: Black;
+  
+  }
