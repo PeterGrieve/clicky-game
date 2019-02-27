@@ -2,53 +2,54 @@
 import React from "react";
 import "./Body.css";
 import Clicky from '../Clicky';
+
+import aquarius from './images/aquarius.png'
+import aries from './images/aries.png'
+import cancer from './images/cancer.png'
+import capricorn from './images/capricorn.png'
+import gemini from './images/gemini.png'
+import leo from './images/leo.png'
+import libra from './images/libra.png'
+import pisces from './images/pisces.png'
+import sagittarius from './images/sagittarius.png'
+import scorpio from './images/scorpio.png'
+import taurus from './images/taurus.png'
+import virgo from './images/virgo.png'
+
 import { Container, Row, Col } from 'react-materialize'
 
-const keys = [0,1,2,3,4,5,6,7,8,9,10,11];
+const keys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
-    // const images = ['./images/aquarius.png',
-    //     './images/aries.png',
-    //     './images/cancer.png',
-    //     './images/capricorn.png',
-    //     './images/gemini.png',
-    //     './images/leo.png',
-    //     './images/libra.png',
-    //     './images/pisces.png',
-    //     './images/sagittarius.png',
-    //     './images/scorpio.png',
-    //     './images/taurus.png',
-    //     './images/virgo.png'];
+const images = [aquarius,
+  aries,
+  cancer,
+  capricorn,
+  gemini,
+  leo,
+  libra,
+  pisces,
+  sagittarius,
+  scorpio,
+  taurus,
+  virgo];
+
 
 class Body extends React.Component {
-  
+
 
   state = {
 
     score: 0,
 
-      // clickyValues: keys.map(this.mapImages, this)
-
-    clickyValues: [
-      { value: <img src={require('./images/aquarius.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/aries.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/cancer.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/capricorn.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/gemini.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/leo.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/libra.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/pisces.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/sagittarius.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/scorpio.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/taurus.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/virgo.png')} width="125" height="125" />, clicked: false }]
+    clickyValues: keys.map(this.mapImages, this)
 
   };
 
-  // mapImages(i){
+  mapImages(i) {
 
-  //   return { value: <img src={require(images[i])} width="125" height="125" />, clicked: false};
+    return { value: <img src={images[i]} width="125" height="125" />, clicked: false };
 
-  // }
+  }
 
   handleClick(i) {
 

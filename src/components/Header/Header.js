@@ -1,6 +1,5 @@
 import React from "react";
 import "./Header.css";
-import Body from '../Body';
 import { Col, Row, Navbar } from 'react-materialize'
 
 class Header extends React.Component {
