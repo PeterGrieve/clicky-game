@@ -4,13 +4,29 @@ import "./Body.css";
 import Clicky from '../Clicky';
 import { Container, Row, Col } from 'react-materialize'
 
+const keys = [0,1,2,3,4,5,6,7,8,9,10,11];
 
+    // const images = ['./images/aquarius.png',
+    //     './images/aries.png',
+    //     './images/cancer.png',
+    //     './images/capricorn.png',
+    //     './images/gemini.png',
+    //     './images/leo.png',
+    //     './images/libra.png',
+    //     './images/pisces.png',
+    //     './images/sagittarius.png',
+    //     './images/scorpio.png',
+    //     './images/taurus.png',
+    //     './images/virgo.png'];
 
 class Body extends React.Component {
+  
 
   state = {
 
     score: 0,
+
+      // clickyValues: keys.map(this.mapImages, this)
 
     clickyValues: [
       { value: <img src={require('./images/aquarius.png')} width="125" height="125" />, clicked: false },
@@ -24,11 +40,15 @@ class Body extends React.Component {
       { value: <img src={require('./images/sagittarius.png')} width="125" height="125" />, clicked: false },
       { value: <img src={require('./images/scorpio.png')} width="125" height="125" />, clicked: false },
       { value: <img src={require('./images/taurus.png')} width="125" height="125" />, clicked: false },
-      { value: <img src={require('./images/virgo.png')} width="125" height="125" />, clicked: false },
-    ]
+      { value: <img src={require('./images/virgo.png')} width="125" height="125" />, clicked: false }]
 
   };
 
+  // mapImages(i){
+
+  //   return { value: <img src={require(images[i])} width="125" height="125" />, clicked: false};
+
+  // }
 
   handleClick(i) {
 
@@ -110,6 +130,9 @@ class Body extends React.Component {
   }
 
   render() {
+
+    const renderedClickies = keys.map(this.renderClicky, this);
+
     return (
       <div>
         <Container>
@@ -119,7 +142,7 @@ class Body extends React.Component {
               <div className="directions">
                 <p>
                   Click Every Image once to win.
-                  If you click the same Image twice you lose.
+                  If you click the same Image twice, you lose.
               </p>
               </div>
             </Col>
@@ -129,26 +152,26 @@ class Body extends React.Component {
           </Row>
           <Row>
             <Col s={2}></Col>
-            {this.renderClicky(0)}
-            {this.renderClicky(1)}
-            {this.renderClicky(2)}
-            {this.renderClicky(3)}
+            {renderedClickies[0]}
+            {renderedClickies[1]}
+            {renderedClickies[2]}
+            {renderedClickies[3]}
             <Col s={2}></Col>
           </Row>
           <Row>
             <Col s={2}></Col>
-            {this.renderClicky(4)}
-            {this.renderClicky(5)}
-            {this.renderClicky(6)}
-            {this.renderClicky(7)}
+            {renderedClickies[4]}
+            {renderedClickies[5]}
+            {renderedClickies[6]}
+            {renderedClickies[7]}
             <Col s={2}></Col>
           </Row>
           <Row>
             <Col s={2}></Col>
-            {this.renderClicky(8)}
-            {this.renderClicky(9)}
-            {this.renderClicky(10)}
-            {this.renderClicky(11)}
+            {renderedClickies[8]}
+            {renderedClickies[9]}
+            {renderedClickies[10]}
+            {renderedClickies[11]}
             <Col s={2}></Col>
           </Row>
         </Container>
