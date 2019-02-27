@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import { Col, Row, Navbar } from 'react-materialize'
 
+// the Header component displays the navbar and title
 class Header extends React.Component {
 
     render() {
